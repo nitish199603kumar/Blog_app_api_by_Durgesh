@@ -5,19 +5,23 @@ import java.util.Set;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import in.nitish.blog.entity.Role;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Setter
 @Getter
 @ToString
+@Builder
 public class UserDto {
 
 	private Integer id;

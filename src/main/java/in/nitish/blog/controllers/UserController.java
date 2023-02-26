@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +27,7 @@ import in.nitish.blog.service.UserService;
 @RequestMapping("/api/user")
 public class UserController {
 	
-//	 Logger logger = LoggerFactory.getLogger(UserController.class);
+	Logger logger = LoggerFactory.getLogger(UserController.class);
 	
 	@Autowired
 	private UserService userService;
@@ -34,6 +36,7 @@ public class UserController {
 	@PostMapping("/createuser")
 	public ResponseEntity<UserDto> createUser(@Valid @RequestBody UserDto userDto)
 	{
+		logger.info("createuser request {} ", userDto.toString());
 		UserDto createUser = userService.createUser(userDto);
 		System.out.println("Response From Controller to create user :-"+createUser);
 		return new ResponseEntity<>(createUser,HttpStatus.CREATED);
